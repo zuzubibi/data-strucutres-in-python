@@ -129,7 +129,7 @@ git commit -am "(메시지)"
 
 ---
 
-2. reset 사용해서 과거로 돌아가기
+2. **reset** 사용해서 과거로 돌아가기
 
 ​	아래 명령어로 커밋 내역 확인
 
@@ -137,7 +137,7 @@ git commit -am "(메시지)"
 git log
 ```
 
-- 되돌아갈 시점: `Add team Cheets`의 커밋 해시 복사
+- 되돌아갈 시점: 돌아갈 시점의 커밋 해시 복사
 - `:q`로 빠져나가기
 
 ```python
@@ -146,3 +146,61 @@ git reset --hard (돌아갈 커밋 해시)
 
 - reset의 옵션(--hard 등)은 섹션 5에서 다룰 것
 
+-----
+
+3. **reset** 하기 전 시점으로 복원해보기
+
+​	백업해 둔 `.git` 폴더 사용
+
+- `.git` 폴더 복원
+
+- `git log`, `git status`로 상태 확인
+
+- 아래 명령어로 현 커밋 상태로 초기화
+
+  ```python
+  git reset --hard
+  ```
+
+- 뒤에 커밋 해시가 없으면 마지막 커밋을 가리킴
+
+-----
+
+4. **revert**로 과거의 커밋 되돌리기
+
+   `Add George to Tigers`의 커밋 해시 구하기
+
+   아래 명령어로 **revert**
+
+   ```python
+   git revert (되돌릴 커밋 해시)
+   ```
+
+   - `:wq`로 커밋 메시지 저장
+
+---
+
+✅ 커밋해버리지 않고 revert하기
+
+```
+git revert --no-commit (되돌릴 커밋 해시)
+```
+
+- 원하는 다른 작업을 추가한 다음 함께 커밋
+- 취소하려면 `git reset --hard`
+
+ 
+
+## Lesson 4. SourceTree로 진행해보기
+
+1. 변경사항  만들고 커밋하기
+
+   - 파일 삭제, 수정 등등의 변경사항 만듦
+
+   - `.gitignore`에 `*.config` 추가	
+
+   - 파일 추가
+
+   - 커밋 메시지: `commit with SourceTree`
+
+     
