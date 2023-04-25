@@ -97,7 +97,7 @@ command + '.' + shift
    캡슐에 담기
 
    ```python
-   git add .
+git add .
    ```
 
    - `git status`로 확인
@@ -105,7 +105,7 @@ command + '.' + shift
      
 
    ```python
-   git commit -m "Replace Lions with Leopards"
+git commit -m "Replace Lions with Leopards"
    ```
 
    
@@ -113,8 +113,36 @@ command + '.' + shift
    ✅ TIP `add`와 `commit` 한꺼번에
 
    ```python
-   git commit -am "(메시지)"
+git commit -am "(메시지)"
    ```
 
    - ‼️ 새로 추가된(untracked) 파일이 없을 때 한정
+
+
+
+## Lesson 2. 과거로 돌아가기 실습
+
+1. 실습 전 내역 백업
+   - `.git` 폴더를 복사해두기
+     - 맥에서 숨김 파일 보기: `command` + `shift` + `.`
+   - `.git` 폴더 없앤 다음 git 상태 확인해보기
+
+---
+
+2. reset 사용해서 과거로 돌아가기
+
+​	아래 명령어로 커밋 내역 확인
+
+```python
+git log
+```
+
+- 되돌아갈 시점: `Add team Cheets`의 커밋 해시 복사
+- `:q`로 빠져나가기
+
+```python
+git reset --hard (돌아갈 커밋 해시)
+```
+
+- reset의 옵션(--hard 등)은 섹션 5에서 다룰 것
 
