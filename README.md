@@ -194,13 +194,20 @@ git revert --no-commit (되돌릴 커밋 해시)
 ## Lesson 4. SourceTree로 진행해보기
 
 1. 변경사항  만들고 커밋하기
-
    - 파일 삭제, 수정 등등의 변경사항 만듦
-
    - `.gitignore`에 `*.config` 추가	
-
    - 파일 추가
-
    - 커밋 메시지: `commit with SourceTree`
 
-     
+---
+
+2. revert
+
+- 해당 커밋에 마우스 우클릭 - `커밋 되돌리기`
+
+----
+
+3. reset
+
+- 해당 커밋에 마우스 우클릭 - `...이 커밋으로 초기화`
+- 선택지에서 `Hard` 선택
