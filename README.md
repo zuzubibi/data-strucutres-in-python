@@ -131,7 +131,7 @@ git commit -am "(메시지)"
 
 2. **reset** 사용해서 과거로 돌아가기
 
-​	아래 명령어로 커밋 내역 확인
+ 아래 명령어로 커밋 내역 확인
 
 ```python
 git log
@@ -150,7 +150,7 @@ git reset --hard (돌아갈 커밋 해시)
 
 3. **reset** 하기 전 시점으로 복원해보기
 
-​	백업해 둔 `.git` 폴더 사용
+ 백업해 둔 `.git` 폴더 사용
 
 - `.git` 폴더 복원
 
@@ -191,11 +191,11 @@ git revert --no-commit (되돌릴 커밋 해시)
 
  
 
-## Lesson 4. SourceTree로 진행해보기
+## Lesson 3. SourceTree로 진행해보기
 
 1. 변경사항  만들고 커밋하기
    - 파일 삭제, 수정 등등의 변경사항 만듦
-   - `.gitignore`에 `*.config` 추가	
+   - `.gitignore`에 `*.config` 추가  
    - 파일 추가
    - 커밋 메시지: `commit with SourceTree`
 
@@ -211,3 +211,71 @@ git revert --no-commit (되돌릴 커밋 해시)
 
 - 해당 커밋에 마우스 우클릭 - `...이 커밋으로 초기화`
 - 선택지에서 `Hard` 선택
+
+
+
+## Lesson4. 여러 branch 만들어보기
+
+Branch: 분기된 가지 (다른 차원)
+
+- 프로젝트를 하나 이상의 모습으로 관리해야 할 때
+  - 예) 실배포용, 테스트서버용, 새로운 시도용
+- 여러 작업들이 각각 독립되어 진행될 때
+  - 예) 신기능 1, 신기능 2, 코드개선, 긴급수정..
+  - 각각의 차원에서 작업한 뒤 확정된 것을 메인 차원에 통합
+
+#### 이 모든 것을 하나의 프로젝트 폴더에서 진행할 수 있도록!
+
+----
+
+1. 브랜치 생성 / 이동 / 삭제하기
+
+   `add-coach`란 이름의 브랜치 생성
+
+   ```python
+   git branch (새로운 브랜치명)
+   ```
+
+   브랜치 목록 확인
+
+   ```python
+   git branch
+   ```
+
+   `add-coach` 브랜치로 이동
+
+   ```python
+   git switch (새로운 브랜치명)
+   ```
+
+   - `checkout` 명령어가 Git2.23 버전부터 `switch`, `restore`로 분리
+
+📌 브랜치 생성과 동시에 이동하기
+
+```python
+git switch -c (새로운 브랜치명)
+```
+
+- 기존의 `git checkout -b (새 브랜치명)`
+
+🗑️ 브랜치 삭제하기
+
+```
+git branch -d (삭제할 브랜치명)
+```
+
+---
+
+2. 결과 살펴보기
+
+`git log`: 위치한 브랜치에서의 내역만 볼 수 있음
+
+여러 브랜치의 내역 편리하게 보기
+
+```python
+git log --all --decorate --online --graph
+```
+
+
+
+** sourceTree에서 확인하면 더 쉽다. **
