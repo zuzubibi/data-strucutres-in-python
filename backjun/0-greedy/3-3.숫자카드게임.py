@@ -24,6 +24,11 @@
 3 3 3 4
 
 정답) 3
+
+--- 문제 접근법 ---
+1. result라는 변수에 0을 담는다. 
+2. 행의 가장 작은 숫자들을 min() 으로 추린다.
+3. result와 행마다 가장 적은 숫자들을 max()로 비교하여 result를 갱신한다.
 """
 
 n, m = map(int, input().split())
@@ -38,19 +43,18 @@ arr = [
 # arr = [[3,1,2],[4,1,4],[2,2,2]]
 
 _min = 9999
-
 result = 0
 
 for i in arr:
     if min(i) < _min:
         _min = min(i)
-        num = i
     else:
-        result = min(i)
+        result = _min
 
 print(result)
 
 #-------------------모범 답안--------------------------   
+
 # n,m 을 공백으로 구분하여 입력받기
 n,m = map(int,input().split())
 
