@@ -214,7 +214,7 @@ git revert --no-commit (되돌릴 커밋 해시)
 
 
 
-## Lesson4. 여러 branch 만들어보기
+## Lesson 4. 여러 branch 만들어보기
 
 Branch: 분기된 가지 (다른 차원)
 
@@ -279,3 +279,125 @@ git log --all --decorate --online --graph
 
 
 ** sourceTree에서 확인하면 더 쉽다. **
+
+
+
+## Lesson 5. branch 합치기 실습
+
+1. merge로 합치기
+
+​	`add-coah` 브랜치를 `main` 브랜치로 merge
+
+- `main`브랜치로 이동
+
+- 아래의 명령어로 병합
+
+  ```python
+  git merge add-coach
+  ```
+
+- `:wq`로 자동입력된 커밋 메시지 저장하여 마무리
+
+- 소스트리에서 확인
+
+  
+
+🩵 `merge`는 `reset`으로 되돌리기 가능
+
+- `merge`도 하나의 커밋
+- `merge` 하기 전 해당 브랜치의 마지막 시점으로
+
+
+
+#### 병합된 브랜치는 삭제
+
+삭제 전 소스트리에서 `add-coach` 위치 확인
+
+```python
+git branch -d add-coach
+```
+
+---
+
+2. **rebase**로 합치기
+
+   `new-team` 브랜치를 `main` 브랜치로 **rebase**
+
+   - `new-team` 브랜치로 이동
+     - `merge` 때와는 반대!
+   - 아래의 명령어로 병합
+
+   ```
+   git rebase main
+   ```
+
+   - 소스트리에서 상태 확인
+
+     - `main` 브랜치는 뒤쳐져 있는 상황
+
+       
+
+   - `main` 브랜치로 이동 후 아래 명령어로 `new-team`의 시점으로 **fast-forward**
+
+     ```
+     git merge new-teams
+     ```
+
+   - `new-teams` 브랜치 삭제
+
+
+
+## Lesson 6. 충돌 해결하기
+
+#### 브랜치간 충돌
+
+- 파일의 같은 위치에 다른 내용이 입력된 상황
+
+1. `merge` 충돌 해결하기
+
+​	`git merge conflict-1`로 병합을 시도하면 충돌 발생
+
+- 오류 메시지와 `git status` 확인
+- VS code에서 해당부분 확인
+
+
+
+당장 충돌 해결이 어려울 경우 아래 명령어로 `merge` 중단
+
+```python
+git merge --abort
+```
+
+해결 가능 시 충돌 부분을 수정한 뒤 `git add .`, `git commit` 으로 병합 완료
+
+----
+
+2. `rebase` 충돌 해결하기
+
+`confilct-2`에서 `git rebase main`로 리베이스 시도하면 충돌 발생
+
+- 오류 메시지와 `git status` 확인
+- VS Code에서 해당 부분 확인
+
+당장 충돌 해결이 어려울 경우 아래 명령어로 `merge` 중단
+
+```python
+git rebase --abort
+```
+
+
+
+#### 해결 가능 시
+
+- 충돌 부분을 수정한 뒤  `git add .`
+- 아래 명령어로 계속
+
+```python
+git rebase --continue
+```
+
+- 충돌이 모두 해결될 때까지 반복
+
+`main`에서 `git merge conflict-2`로 마무리
+
+`conflict-1`, `conflict-2` 삭제
