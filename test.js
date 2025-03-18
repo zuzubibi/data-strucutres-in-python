@@ -1,15 +1,13 @@
-// 전역 함수
-function foo() {
-	console.log('global function foo');
-}
+// const array = new Array(10).fill('test');
 
-function bar() {
-	// 중첩 함수
-	function foo() {
-		console.log('local funciton foo');
-	}
-	
-	foo(); // 1번 문제
-}
+const example2 = [
+    { id: 123, name: "nkh" },
+    { id: 123, name: "ddd" },
+    { id: 5456, name: "zxc" }
+];
+console.log([...new Set(example2.map(JSON.stringify))].map(JSON.parse));
+// [{id: 123,  name: 'nkh'}, {id: 123, name: 'ddd'}, {id: 5456, name: 'zxc'}]
+  
 
-bar();
+let example = [{ id: 123 }, { id: 456 }, { id: 123 }];
+console.log([...new Set(example.map(JSON.stringify))].map(JSON.parse));
